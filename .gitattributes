@@ -1,0 +1,2 @@
+Assets/Scenes/FirstPersonSample/LightingData.asset filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/ThirdPersonSample/LightingData.asset filter=lfs diff=lfs merge=lfs -text

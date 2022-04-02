@@ -185,5 +185,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAxisName: Vertical
   rotateAxisName: Horizontal
-  moveSpeed: 5
-  rotateSpeed: 90
+  moveSpeed: 1
+  rotateSpeed: 45

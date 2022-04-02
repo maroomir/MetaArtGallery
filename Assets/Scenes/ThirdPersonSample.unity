@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 0f6d22daeccdd4199a077990259f150d, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 9be506288ed4e4716a75ea6bfec6b06a, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: d0d34380f2c249545972828714552d8e, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: e01ea3bf24f9fb34087ac7ff49d938e7, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0445135, y: 1}
+    m_SensorSize: {x: 2.1991053, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
