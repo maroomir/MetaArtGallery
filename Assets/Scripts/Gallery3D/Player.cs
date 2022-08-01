@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public string moveAxisName = "Vertical";
-    public string rotateAxisName = "Horizontal";
-    public float moveSpeed = 5F;
-    public float rotateSpeed = 180F;
+    [SerializeField] private string moveAxisName = "Vertical";
+    [SerializeField] private string rotateAxisName = "Horizontal";
+    [SerializeField] private float moveSpeed = 5F;
+    [SerializeField] private float rotateSpeed = 180F;
 
     private Rigidbody _pBody;
     private Animator _pAnimator;
