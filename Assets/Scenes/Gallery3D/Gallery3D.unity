@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4582239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4582242}
+  - component: {fileID: 4582241}
+  m_Layer: 0
+  m_Name: GalleryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4582241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f2ec233b314395ae943ccf0a056c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag: Painters
+--- !u!4 &4582242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &11413365
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +951,7 @@ GameObject:
   - component: {fileID: 188106809}
   - component: {fileID: 188106811}
   - component: {fileID: 188106810}
+  - component: {fileID: 188106812}
   m_Layer: 0
   m_Name: Painter Plane
   m_TagString: Painters
@@ -950,6 +996,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188106808}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &188106812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188106808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 3
+  paintWidth: 3
 --- !u!1 &202988725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,6 +1643,7 @@ GameObject:
   - component: {fileID: 577366951}
   - component: {fileID: 577366953}
   - component: {fileID: 577366952}
+  - component: {fileID: 577366954}
   m_Layer: 0
   m_Name: Painter Plane
   m_TagString: Painters
@@ -1626,6 +1688,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577366950}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &577366954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577366950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 1
+  paintWidth: 3
 --- !u!1 &579581625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1874,7 @@ GameObject:
   - component: {fileID: 643846434}
   - component: {fileID: 643846436}
   - component: {fileID: 643846435}
+  - component: {fileID: 643846437}
   m_Layer: 0
   m_Name: Painter Plane
   m_TagString: Painters
@@ -1841,6 +1919,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643846433}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &643846437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643846433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 1
+  paintWidth: 3
 --- !u!1 &668415739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,9 +1945,10 @@ GameObject:
   - component: {fileID: 668415740}
   - component: {fileID: 668415743}
   - component: {fileID: 668415741}
+  - component: {fileID: 668415744}
   m_Layer: 0
   m_Name: Painter Plane
-  m_TagString: Untagged
+  m_TagString: Painters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1896,6 +1990,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668415739}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &668415744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668415739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 3
+  paintWidth: 3
 --- !u!1001 &668611182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3743,6 +3852,7 @@ GameObject:
   - component: {fileID: 1260874096}
   - component: {fileID: 1260874098}
   - component: {fileID: 1260874097}
+  - component: {fileID: 1260874099}
   m_Layer: 0
   m_Name: Painter Plane
   m_TagString: Painters
@@ -3787,6 +3897,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260874095}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1260874099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260874095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 3
+  paintWidth: 3
 --- !u!1 &1264423802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,9 +4939,10 @@ GameObject:
   - component: {fileID: 1652090897}
   - component: {fileID: 1652090899}
   - component: {fileID: 1652090898}
+  - component: {fileID: 1652090900}
   m_Layer: 0
   m_Name: Painter Plane
-  m_TagString: Untagged
+  m_TagString: Painters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4858,6 +4984,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652090896}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1652090900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652090896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 1
+  paintWidth: 3
 --- !u!1 &1663360736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,31 +5998,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2011983937}
+  - component: {fileID: 2011983940}
   - component: {fileID: 2011983939}
   - component: {fileID: 2011983938}
+  - component: {fileID: 2011983941}
   m_Layer: 0
   m_Name: Painter Plane
-  m_TagString: Untagged
+  m_TagString: Painters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2011983937
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011983936}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: 0.05}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.2}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1075302472}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!64 &2011983938
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5904,6 +6031,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011983936}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2011983940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011983936}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2, z: 0.05}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1075302472}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2011983941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011983936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  paintNum: 3
+  paintWidth: 3
 --- !u!1001 &2012384480
 PrefabInstance:
   m_ObjectHideFlags: 0

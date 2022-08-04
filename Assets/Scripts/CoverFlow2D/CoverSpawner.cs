@@ -13,7 +13,7 @@ namespace CoverFlow2D
         [SerializeField] private Scrollbar horizontalScrollbar;
         [SerializeField] private Transform parentTransform;
 
-        private readonly string[] _pCoverExtensions = {".bmp", ".png", ".jpg"};
+        
         private List<Cover> _pListCovers;
 
         public void Init()
@@ -31,9 +31,8 @@ namespace CoverFlow2D
         {
             foreach (DirectoryInfo pDir in pDirectory.GetDirectories())
                 UpdateCovers(pDir);
-            foreach (FileInfo pFile in pDirectory.GetFiles())
-                if (_pCoverExtensions.Contains(pFile.Extension))
-                    SpawnCover(pFile);
+            foreach (FileInfo pFile in pDirectory.GetImages())
+                SpawnCover(pFile);
         }
 
         private void SpawnCover(FileInfo pFile)

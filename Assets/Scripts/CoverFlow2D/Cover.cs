@@ -18,21 +18,7 @@ namespace CoverFlow2D
         public void Init(FileInfo pFile)
         {
             imageBackground.color = _pDefaultColor;
-
-            byte[] pBytes = File.ReadAllBytes(pFile.FullName);
-            Texture2D pTexture = new Texture2D(0, 0);
-            if (pBytes.Length > 0)
-                pTexture.LoadImage(pBytes);
-            if (pTexture.width > _fMaxWidth)
-                imageCover.rectTransform.sizeDelta =
-                    new Vector2(_fMaxWidth, _fMaxWidth / pTexture.width * pTexture.height);
-            else if (pTexture.height > _fMaxHeight)
-                imageCover.rectTransform.sizeDelta =
-                    new Vector2(_fMaxHeight / pTexture.height * pTexture.width, _fMaxHeight);
-            else
-                imageCover.rectTransform.sizeDelta = new Vector2(pTexture.width, pTexture.height);
-            imageCover.sprite =
-                Sprite.Create(pTexture, new Rect(0, 0, pTexture.width, pTexture.height), new Vector2(0.5f, 0.5f));
+            ImageFactory.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
