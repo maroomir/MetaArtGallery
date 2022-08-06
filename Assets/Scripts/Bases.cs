@@ -8,6 +8,8 @@ public abstract class SpawnerBase : MonoBehaviour, ISpawner
 {
     [SerializeField] protected int imageNum;
     private int _iImageCount;
+
+    public int ArtNum => imageNum;
     
     public abstract void Init();
     public abstract void SpawnArt(FileInfo pFile, int nIndex);

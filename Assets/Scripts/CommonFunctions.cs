@@ -1,10 +1,24 @@
 
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 
+public static class ArrayFactory
+{
+    public static T[] Slice<T>(this T[] pSource, int nStart, int nEnd)
+    {
+        if (nEnd < 0)
+            nEnd = pSource.Length + nEnd;
+        int nLength = nEnd - nStart;
+        T[] pResult = new T[nLength];
+        for (int i = 0; i < nLength; i++)
+            pResult[i] = pSource[i + nStart];
+        return pResult;
+    }
+}
 
 public static class VectorFactory
 {
@@ -28,7 +42,16 @@ public static class ImageFactory
         FileInfo[] pResults = pDirectory.GetFiles();
         return pResults.Where(source => Extensions.Contains(source.Extension)).ToArray();
     }
-    
+
+    public static FileInfo[] GetImagesAll(this DirectoryInfo pDirectory)
+    {
+        List<FileInfo> pResults = new List<FileInfo>();
+        foreach (DirectoryInfo pDir in pDirectory.GetDirectories())
+            pResults.AddRange(pDir.GetImagesAll());
+        pResults.AddRange(pDirectory.GetImages());
+        return pResults.ToArray();
+    }
+
     public static Texture2D LoadTexture(FileInfo pFile)
     {
         byte[] pBytes = File.ReadAllBytes(pFile.FullName);
