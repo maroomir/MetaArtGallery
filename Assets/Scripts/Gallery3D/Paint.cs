@@ -13,12 +13,12 @@ namespace Gallery3D
         Horz,
     }
 
-    public class Paint : MonoBehaviour, IPointerClickHandler
+    public class Paint : MonoBehaviour, IArt
     {
         [SerializeField] private List<GameObject> paints;
         private Texture _pTexture;
 
-        public void Init(FileInfo pFile)
+        public void UpdateArt(FileInfo pFile)
         {
             foreach (GameObject pPaint in paints)
                 pPaint.SetActive(false);
@@ -34,6 +34,16 @@ namespace Gallery3D
         }
 
         public void OnPointerClick(PointerEventData eventData)
+        {
+            //
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            //
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
         {
             //
         }

@@ -2,21 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace CoverFlow2D
 {
-    public class CoverSpawner : MonoBehaviour
+    public class CoverSpawner : SpawnerBase
     {
         [SerializeField] private GameObject panelCover;
         [SerializeField] private Scrollbar horizontalScrollbar;
         [SerializeField] private Transform parentTransform;
-
         
         private List<Cover> _pListCovers;
 
-        public void Init()
+        public override void Init()
         {
             _pListCovers ??= new List<Cover>();
             foreach (Cover pCover in _pListCovers)
@@ -27,22 +27,13 @@ namespace CoverFlow2D
             _pListCovers?.Clear();
         }
 
-        public void UpdateCovers(DirectoryInfo pDirectory)
+        public override void SpawnArt(FileInfo pFile, int nIndex)
         {
-            foreach (DirectoryInfo pDir in pDirectory.GetDirectories())
-                UpdateCovers(pDir);
-            foreach (FileInfo pFile in pDirectory.GetImages())
-                SpawnCover(pFile);
-        }
-
-        private void SpawnCover(FileInfo pFile)
-        {
-            GameObject pClone = Instantiate(panelCover);
-            pClone.transform.SetParent(parentTransform);
+            GameObject pClone = Instantiate(panelCover, parentTransform, true);
             pClone.transform.localScale = Vector3.one;
 
             Cover pCover = pClone.GetComponent<Cover>();
-            pCover.Init(pFile);
+            pCover.UpdateArt(pFile);
             _pListCovers.Add(pCover);
         }
     }

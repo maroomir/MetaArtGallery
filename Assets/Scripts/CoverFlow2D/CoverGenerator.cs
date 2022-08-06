@@ -14,7 +14,7 @@ namespace CoverFlow2D
         
             _pCoverSpawner = GetComponent<CoverSpawner>();
             _pCoverSpawner.Init();
-            _pCoverSpawner.UpdateCovers(new DirectoryInfo(strResourcePath));
+            _pCoverSpawner.UpdateArts(new DirectoryInfo(strResourcePath));
         }
     }
 }

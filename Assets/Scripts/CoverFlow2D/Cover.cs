@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace CoverFlow2D
 {
-    public class Cover : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+    public class Cover : MonoBehaviour, IArt
     {
         [SerializeField] private Image imageBackground;
         [SerializeField] private Image imageCover;
@@ -15,7 +15,7 @@ namespace CoverFlow2D
         private readonly Color _pDefaultColor = new Color(0f, 0f, 0f, 0f);
         private readonly Color _pHighlightColor = Color.magenta;
 
-        public void Init(FileInfo pFile)
+        public void UpdateArt(FileInfo pFile)
         {
             imageBackground.color = _pDefaultColor;
             ImageFactory.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);

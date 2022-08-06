@@ -18,7 +18,7 @@ namespace Gallery3D
             {
                 PaintSpawner pSpawner = pObject.GetComponent<PaintSpawner>();
                 pSpawner.Init();
-                pSpawner.UpdatePaints(new DirectoryInfo(strResourcePath));
+                pSpawner.UpdateArts(new DirectoryInfo(strResourcePath));
             }
         }
     }
