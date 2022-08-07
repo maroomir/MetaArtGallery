@@ -13,7 +13,6 @@ namespace CoverFlow2D
         private void Awake()
         {
             Application.runInBackground = true;
-            string strResourcePath = Path.Combine(Application.dataPath, "Resources");
             FileInfo pSourceFile = new FileInfo(GlobalParameter.SelectedTexturePath);
             FileInfo[] pFiles = Run(pSourceFile, _nMaxNum);
             _pCoverSpawner = GetComponent<CoverSpawner>();

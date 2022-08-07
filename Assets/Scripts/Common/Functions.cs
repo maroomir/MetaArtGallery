@@ -6,6 +6,42 @@ using UnityEngine.UI;
 
 namespace Common
 {
+    public static class KeyCodeFactory
+    {
+        public static bool IsInputKeys(IEnumerable<KeyCode> pObserves)
+        {
+            foreach (KeyCode eKey in pObserves)
+                if (Input.GetKey(eKey))
+                    return true;
+            return false;
+        }
+
+        public static KeyCode GetInputKey(IEnumerable<KeyCode> pObserves)
+        {
+            foreach (KeyCode eKey in pObserves)
+                if (Input.GetKey(eKey))
+                    return eKey;
+            return KeyCode.None;
+        }
+    
+        public static KeyCode GetInputKeyDown(IEnumerable<KeyCode> pObserves)
+        {
+            foreach (KeyCode eKey in pObserves)
+                if (Input.GetKeyDown(eKey))
+                    return eKey;
+            return KeyCode.None;
+        }
+
+        public static KeyCode[] GetInputKeys(IEnumerable<KeyCode> pObserves)
+        {
+            List<KeyCode> pResult = new List<KeyCode>();
+            foreach (KeyCode eKey in pObserves)
+                if (Input.GetKey(eKey))
+                    pResult.Add(eKey);
+            return pResult.ToArray();
+        }
+    }
+    
     public static class ArrayFactory
     {
         public static T[] Slice<T>(this T[] pSource, int nStart, int nEnd)
