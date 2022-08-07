@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Gallery3D/Gallery3D.unity
+    guid: eec8a33455b380546a4b7306a789f300
+  - enabled: 1
+    path: Assets/Scenes/CoverFlow2D/CoverFlow2D.unity
+    guid: 198a9d984779e4ec399ee017899cc503
   m_configObjects: {}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 428788189781366032}
   - component: {fileID: 3990921032450375729}
   - component: {fileID: 4211750815008529282}
+  - component: {fileID: 5137217913154110450}
   m_Layer: 0
   m_Name: Paint
   m_TagString: Untagged
@@ -112,6 +113,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &5137217913154110450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801692597900777140}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2956109, y: 0.48268098, z: 1.4102873}
+  m_Center: {x: 0.002548337, y: 0.21788558, z: 0.0012740493}
 --- !u!1 &3824259340324763480
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7984026399334135169
 Transform:
   m_ObjectHideFlags: 0

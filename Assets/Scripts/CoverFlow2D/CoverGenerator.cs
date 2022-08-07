@@ -1,4 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using Common;
 using UnityEngine;
 
 namespace CoverFlow2D
@@ -6,15 +8,25 @@ namespace CoverFlow2D
     public class CoverGenerator : MonoBehaviour
     {
         private CoverSpawner _pCoverSpawner;
+        private static readonly int _nMaxNum = 100;
 
-        void Awake()
+        private void Awake()
         {
             Application.runInBackground = true;
             string strResourcePath = Path.Combine(Application.dataPath, "Resources");
-        
+            FileInfo pSourceFile = new FileInfo(GlobalParameter.SelectedTexturePath);
+            FileInfo[] pFiles = Run(pSourceFile, _nMaxNum);
             _pCoverSpawner = GetComponent<CoverSpawner>();
             _pCoverSpawner.Init();
-            _pCoverSpawner.UpdateArts(new DirectoryInfo(strResourcePath));
+            _pCoverSpawner.UpdateArts(pFiles);
+        }
+
+        private static T[] Run<T>(T pSource, int nArtNum)
+        {
+            T[] pResult = new T[nArtNum];
+            for (int i = 0; i < nArtNum; i++)
+                pResult[i] = pSource;
+            return pResult;
         }
     }
 }

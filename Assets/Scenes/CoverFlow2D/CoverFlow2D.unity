@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32803d68d00d4418eb4df4c0d8d5eabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageNum: 10
   panelCover: {fileID: 6169736968975022054, guid: fb267ba46720e417eaa0139c15851714, type: 3}
   horizontalScrollbar: {fileID: 1814699419}
   parentTransform: {fileID: 1208649012}
@@ -450,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
