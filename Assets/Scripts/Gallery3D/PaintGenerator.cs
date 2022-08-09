@@ -20,42 +20,33 @@ namespace Gallery3D
     {
         [SerializeField] private new string tag = "Painters";
 
-        private int _nTotalSpawners;
-        private List<SpawnerContainer> _pListSpawners;
-
         private void Awake()
         {
             Application.runInBackground = true;
             // Bring all spawners
-            _nTotalSpawners = 0;
-            _pListSpawners = new List<SpawnerContainer>();
+            int nTotalCount = 0;
+            List<SpawnerContainer> pListSpawners = new List<SpawnerContainer>();
             foreach (GameObject pObject in GameObject.FindGameObjectsWithTag(tag))
             {
                 SpawnerContainer pContainer = new SpawnerContainer();
                 pContainer.Spawner = pObject.GetComponent<PaintSpawner>();
                 pContainer.PaintNum = pContainer.Spawner.ArtNum;
-                _nTotalSpawners += pContainer.PaintNum;
-                _pListSpawners.Add(pContainer);
+                nTotalCount += pContainer.PaintNum;
+                pListSpawners.Add(pContainer);
             }
 
-            // Initialize the spawners
-            OnInitializeSpawnerEvent(this, EventArgs.Empty);
-        }
-
-        private void OnInitializeSpawnerEvent(object pSender, EventArgs pArgs)
-        {
             // Bring paints as number of total count
             DirectoryInfo pDirectory = new DirectoryInfo(GlobalParameter.ResourcePath);
-            FileInfo[] pFiles = Curate(pDirectory.GetImagesAll(), _nTotalSpawners);
+            FileInfo[] pFiles = Curate(pDirectory.GetImagesAll(), nTotalCount);
             // Initialize the spawner
             int nStartPos = 0;
-            for (int i = 0; i < _pListSpawners.Count; i++)
+            for (int i = 0; i < pListSpawners.Count; i++)
             {
-                FileInfo[] pFilesSlice = pFiles.Slice(nStartPos, nStartPos + _pListSpawners[i].PaintNum);
-                _pListSpawners[i].Spawner.Init();
-                _pListSpawners[i].Spawner.UpdateArts(pFilesSlice);
-                _pListSpawners[i].Spawner.OnImageSendEvent += OnSendImageEvent;
-                nStartPos += _pListSpawners[i].PaintNum;
+                FileInfo[] pFilesSlice = pFiles.Slice(nStartPos, nStartPos + pListSpawners[i].PaintNum);
+                pListSpawners[i].Spawner.Init();
+                pListSpawners[i].Spawner.UpdateArts(pFilesSlice);
+                pListSpawners[i].Spawner.OnImageSendEvent += OnSendImageEvent;
+                nStartPos += pListSpawners[i].PaintNum;
             }
         }
 
