@@ -1008,9 +1008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 3
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 3
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1 &202988725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,9 +1700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 1
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 1
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1 &579581625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,9 +1931,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 1
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 1
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1 &668415739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,9 +2002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 3
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 3
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1001 &668611182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3909,9 +3909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 3
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 3
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1 &1264423802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,9 +4996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 1
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 1
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1 &1663360736
 GameObject:
   m_ObjectHideFlags: 0
@@ -6058,9 +6058,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55012adb060547e8bd39cc60effc0625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageNum: 3
-  paint: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
-  paintWidth: 3
+  count: 3
+  prefab: {fileID: 3801692597900777140, guid: f059f048e13dc49a8a4784a04ed24812, type: 3}
+  prefabInterval: 3
 --- !u!1001 &2012384480
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace CoverFlow2D
 {
-    public class Cover : MonoBehaviour, IArt, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+    public class Cover : ArtBase, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
     {
         [SerializeField] private Image imageBackground;
         [SerializeField] private Image imageCover;
@@ -14,15 +14,15 @@ namespace CoverFlow2D
         private readonly float _fMaxHeight = 480f;
         private readonly Color _pDefaultColor = new Color(0f, 0f, 0f, 0f);
         private readonly Color _pHighlightColor = Color.magenta;
-
-        public Texture Texture { get; }
-        public string Tag { get; }
-        public string AccessPath { get; }
-
-        public void UpdateArt(FileInfo pFile)
+        
+        public override void UpdateArt(FileInfo pFile)
         {
             imageBackground.color = _pDefaultColor;
             ImageFactory.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);
+            // Load the file structure
+            _pTexture = imageCover.sprite.texture;
+            _strTag = pFile.Name;
+            _strAccessPath = pFile.FullName;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -32,7 +32,7 @@ namespace CoverFlow2D
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            //
+            OnDeliverTexture(this, new TextureArgs(_pTexture, _strTag, _strAccessPath));
         }
 
         public void OnPointerExit(PointerEventData eventData)

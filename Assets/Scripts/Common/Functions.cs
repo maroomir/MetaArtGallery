@@ -81,4 +81,9 @@ namespace Common
             pImage.sprite = pSprite;
         }
     }
+
+    public static class MathFactory
+    {
+        public static int Sign(float fX) => fX == 0 ? 0 : (fX < 0) ? -1 : 1;
+    }
 }

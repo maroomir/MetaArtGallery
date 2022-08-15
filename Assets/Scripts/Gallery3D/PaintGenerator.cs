@@ -30,7 +30,7 @@ namespace Gallery3D
             {
                 SpawnerContainer pContainer = new SpawnerContainer();
                 pContainer.Spawner = pObject.GetComponent<PaintSpawner>();
-                pContainer.PaintNum = pContainer.Spawner.ArtNum;
+                pContainer.PaintNum = pContainer.Spawner.PrefabNum;
                 nTotalCount += pContainer.PaintNum;
                 pListSpawners.Add(pContainer);
             }
@@ -44,8 +44,8 @@ namespace Gallery3D
             {
                 FileInfo[] pFilesSlice = pFiles.Slice(nStartPos, nStartPos + pListSpawners[i].PaintNum);
                 pListSpawners[i].Spawner.Init();
-                pListSpawners[i].Spawner.UpdateArts(pFilesSlice);
-                pListSpawners[i].Spawner.OnImageSendEvent += OnSendImageEvent;
+                pListSpawners[i].Spawner.UpdatePrefabs(pFilesSlice);
+                pListSpawners[i].Spawner.OnTextureDeliverEvent += OnDeliverTexture;
                 nStartPos += pListSpawners[i].PaintNum;
             }
         }
@@ -60,7 +60,7 @@ namespace Gallery3D
             return pResult.Take(nArtNum).ToArray();
         }
 
-        public void OnSendImageEvent(object pSender, TextureArgs pArgs)
+        public void OnDeliverTexture(object pSender, TextureArgs pArgs)
         {
             GlobalParameter.SelectedTexture = pArgs.Texture;
             GlobalParameter.SelectedTextureName = pArgs.Tag;

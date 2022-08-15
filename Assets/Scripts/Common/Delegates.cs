@@ -17,5 +17,5 @@ namespace Common
         }
     }
 
-    public delegate void SendImageCallback(object pSender, TextureArgs pArgs);
+    public delegate void DeliveryTextureHandler(object pSender, TextureArgs pArgs);
 }

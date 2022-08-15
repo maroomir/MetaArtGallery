@@ -14,41 +14,35 @@ namespace Gallery3D
         Horz,
     }
 
-    public class Paint : MonoBehaviour, IArt
+    public class Paint : ArtBase
     {
-        public event SendImageCallback OnImageSendEvent;
-            
         [SerializeField] private List<GameObject> paints;
 
-        public Texture Texture { get; private set; }
-        public string Tag { get; private set; }
-        public string AccessPath { get; private set; }
-
-        public void UpdateArt(FileInfo pFile)
+        public override void UpdateArt(FileInfo pFile)
         {
             // Init the paints
             foreach (GameObject pPaint in paints)
                 pPaint.SetActive(false);
             // Load the file structure
-            Texture = ImageFactory.LoadTexture(pFile);
-            Tag = pFile.Name;
-            AccessPath = pFile.FullName;
+            _pTexture = ImageFactory.LoadTexture(pFile);
+            _strTag = pFile.Name;
+            _strAccessPath = pFile.FullName;
             // Select the frame based on art size
             GameObject pObject;
-            pObject = (Texture.width > Texture.height)
+            pObject = (_pTexture.width > _pTexture.height)
                 ? paints[(int) PaintDir.Horz]
                 : paints[(int) PaintDir.Vert];
             pObject.SetActive(true);
             // Set-up the art texture
             Renderer pRender = pObject.GetComponent<Renderer>();
-            pRender.materials[1].mainTexture = Texture;
+            pRender.materials[1].mainTexture = _pTexture;
         }
 
         public void OnTriggerEnter(Collider other)
         {
             BoxCollider pCollider = GetComponent<BoxCollider>();
             pCollider.isTrigger = false;
-            OnImageSendEvent?.Invoke(this, new TextureArgs(Texture, Tag, AccessPath));
+            OnDeliverTexture(this, new TextureArgs(_pTexture, _strTag, _strAccessPath));
         }
 
         public void OnTriggerExit(Collider other)

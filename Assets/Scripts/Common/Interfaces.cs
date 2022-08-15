@@ -8,17 +8,21 @@ namespace Common
 {
     public interface ISpawner
     {
+        public event DeliveryTextureHandler OnTextureDeliverEvent;
+        public void OnDeliverTexture(object pSender, TextureArgs pArgs);
+        
         public void Init();
-        public void UpdateArts(DirectoryInfo pDirectory);
-        public void UpdateArts([NotNull] IEnumerable<FileInfo> pFiles);
-        public void SpawnArt(FileInfo pFile, int nIndex);
+        public void UpdatePrefabs(DirectoryInfo pDirectory);
+        public void UpdatePrefabs([NotNull] IEnumerable<FileInfo> pFiles);
+        public void SpawnPrefab(FileInfo pFile, int nIndex);
+        public GameObject CreatePrefab(int nIndex);
     }
 
     public interface IArt
     {
-        public Texture Texture { get; }
-        public string Tag { get; }
-        public string AccessPath { get; }
+        public event DeliveryTextureHandler OnTextureDeliverEvent;
+        public void OnDeliverTexture(object pSender, TextureArgs pArgs);
+        
         public void UpdateArt(FileInfo pFile);
     }
 }
