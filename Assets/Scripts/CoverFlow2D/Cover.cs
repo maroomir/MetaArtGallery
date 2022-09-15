@@ -18,7 +18,7 @@ namespace CoverFlow2D
         public override void UpdateArt(FileInfo pFile)
         {
             imageBackground.color = _pDefaultColor;
-            ImageFactory.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);
+            ImageFunctions.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);
             // Load the file structure
             _pTexture = imageCover.sprite.texture;
             _strTag = pFile.Name;

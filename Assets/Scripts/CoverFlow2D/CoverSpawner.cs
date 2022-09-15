@@ -80,12 +80,12 @@ namespace CoverFlow2D
         private Vector3 Position(float fOffset, int nIndex) => new Vector3(TranslationX(fOffset), 0, TranslationZ(fOffset));
 
         private float RotationAngle(float fOffset) => fOffset is >= 1 or <= -1
-            ? MathFactory.Sign(fOffset) * sideAngle
-            : Math.Abs(fOffset) * MathFactory.Sign(fOffset) * sideAngle;
+            ? MathFunctions.Sign(fOffset) * sideAngle
+            : Math.Abs(fOffset) * MathFunctions.Sign(fOffset) * sideAngle;
 
         private float TranslationX(float fOffset) => fOffset is >= 1 or <= -1
-            ? fOffset * sideGapRatio * prefabInterval + MathFactory.Sign(fOffset) * centralGapRatio * prefabInterval
-            : MathFactory.Sign(fOffset) * centralGapRatio * prefabInterval * Math.Abs(fOffset);
+            ? fOffset * sideGapRatio * prefabInterval + MathFunctions.Sign(fOffset) * centralGapRatio * prefabInterval
+            : MathFunctions.Sign(fOffset) * centralGapRatio * prefabInterval * Math.Abs(fOffset);
 
         private float TranslationZ(float fOffset) => fOffset is >= 1 or <= -1
             ? sideDepth

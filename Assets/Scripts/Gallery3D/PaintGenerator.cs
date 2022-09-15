@@ -10,12 +10,6 @@ using Random = System.Random;
 
 namespace Gallery3D
 {
-    public struct SpawnerContainer
-    {
-        public PaintSpawner Spawner;
-        public int PaintNum;
-    }
-
     public class PaintGenerator : MonoBehaviour
     {
         [SerializeField] private new string tag = "Painters";

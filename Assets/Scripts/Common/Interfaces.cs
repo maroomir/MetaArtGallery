@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -24,5 +25,13 @@ namespace Common
         public void OnDeliverTexture(object pSender, TextureArgs pArgs);
         
         public void UpdateArt(FileInfo pFile);
+    }
+
+    public interface IRest
+    {
+        public string Address { get; }
+
+        public string Get(string strKey);
+        public string Post(string strKey, Dictionary<string, string> pJson);
     }
 }

@@ -24,7 +24,7 @@ namespace Gallery3D
             foreach (GameObject pPaint in paints)
                 pPaint.SetActive(false);
             // Load the file structure
-            _pTexture = ImageFactory.LoadTexture(pFile);
+            _pTexture = ImageFunctions.LoadTexture(pFile);
             _strTag = pFile.Name;
             _strAccessPath = pFile.FullName;
             // Select the frame based on art size
