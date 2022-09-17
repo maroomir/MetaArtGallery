@@ -120,32 +120,32 @@ namespace Common
     {
         public static class Patterns
         {
-            public static string ImageExtractor = @"\'([\w\+\/\-\=]+)\'";
+            public static string ImageExtractor = "\"([\\w\\+\\/\\-\\=]+)\"";
         }
         
-        public static string[] DecodeImages(string strResult)
+        public static string[] SplitImages(string strResult)
         {
             // ['A', 'B', 'C']
-            Regex pRegex = new Regex(Patterns.ImageExtractor, RegexOptions.Compiled);
+            Regex pRegex = new Regex(Patterns.ImageExtractor, RegexOptions.None);
             MatchCollection pMatches = pRegex.Matches(strResult);
             string[] pResults = new string[pMatches.Count];
-            for (int i = 0; i < pMatches.Count;)
-                pResults[i] = pMatches[i].Value;
+            for (int i = 0; i < pMatches.Count; i++)
+                pResults[i] = pMatches[i].Groups[1].Value;
             return pResults;
         }
 
         public static bool IsEncodedImages(string strContents)
         {
             // ['A', 'B', 'C']
-            Regex pRegex = new Regex(Patterns.ImageExtractor, RegexOptions.Compiled);
+            Regex pRegex = new Regex(Patterns.ImageExtractor, RegexOptions.None);
             MatchCollection pMatches = pRegex.Matches(strContents);
             return pMatches.Count > 0;
         }
 
-        public static Texture2D[] DecodeTextures(string strContents)
+        public static Texture2D[] SplitTextures(string strContents)
         {
             // ['A', 'B', 'C']
-            Regex pRegex = new Regex(Patterns.ImageExtractor, RegexOptions.Compiled);
+            Regex pRegex = new Regex(Patterns.ImageExtractor, RegexOptions.None);
             MatchCollection pMatches = pRegex.Matches(strContents);
             Texture2D[] pResult = new Texture2D[pMatches.Count];
             for (int i = 0; i < pMatches.Count; i++)
@@ -163,5 +163,10 @@ namespace Common
     public static class MathFunctions
     {
         public static int Sign(float fX) => fX == 0 ? 0 : (fX < 0) ? -1 : 1;
+    }
+
+    public static class FileFunctions
+    {
+        
     }
 }

@@ -18,11 +18,21 @@ namespace CoverFlow2D
         public override void UpdateArt(FileInfo pFile)
         {
             imageBackground.color = _pDefaultColor;
-            ImageFunctions.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);
             // Load the file structure
+            ImageFunctions.LoadImage(ref imageCover, pFile, _fMaxWidth, _fMaxHeight);
             _pTexture = imageCover.sprite.texture;
             _strTag = pFile.Name;
             _strAccessPath = pFile.FullName;
+        }
+
+        public override void UpdateArt(string strContents)
+        {
+            imageBackground.color = _pDefaultColor;
+            // Decode the image from received data
+            ImageFunctions.DecodeImage(ref imageCover, strContents, _fMaxWidth, _fMaxHeight);
+            _pTexture = imageCover.sprite.texture;
+            _strTag = "";
+            _strAccessPath = strContents;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

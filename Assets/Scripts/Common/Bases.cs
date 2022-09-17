@@ -25,15 +25,15 @@ namespace Common
         {
             OnTextureDeliverEvent?.Invoke(pSender, pArgs);
         }
-
+    
         public abstract void UpdateArt(FileInfo pFile);
-
+        public abstract void UpdateArt(string strContents);
     }
 
     public abstract class RestBase : MonoBehaviour, IRest
     {
         
-        [SerializeField] private string address = "127.0.0.1";
+        [SerializeField] private string address = "http://127.0.0.1";
         [SerializeField] private string port = "5000";
 
         private bool _bFlagReceived = false;
@@ -41,12 +41,21 @@ namespace Common
 
         public string Address => $"{address.TrimEnd('/')}:{int.Parse(port.TrimStart(':'))}";
 
-        public string Get(string strKey)
+        public string Get(string strKey, int nTimeout = 10000)
         {
             _bFlagReceived = false;
             strKey = $"{Address}/{strKey.TrimStart('/')}";
             StartCoroutine(GetRequest(strKey));
-            while (!_bFlagReceived) Thread.Sleep(10);
+            DateTime pStartTime = DateTime.Now;
+            while (true)
+            {
+                TimeSpan pSpan = DateTime.Now - pStartTime;
+                if (pSpan.TotalMilliseconds > nTimeout)
+                    break;
+                if (!_bFlagReceived) continue;
+                Debug.Log($"GET {strKey} - time: ${pSpan.TotalMilliseconds}ms");
+                break;
+            }
             return _pHandler?.text;
         }
 
@@ -54,7 +63,7 @@ namespace Common
         {
             if (_bFlagReceived) _bFlagReceived = false;
             using UnityWebRequest pRequest = UnityWebRequest.Get(strUri);
-            yield return pRequest.SendWebRequest();
+            pRequest.SendWebRequest();
             if (pRequest.responseCode >= 200 & pRequest.responseCode < 300)
                 _pHandler = pRequest.downloadHandler;
             else
@@ -64,9 +73,10 @@ namespace Common
             }
 
             _bFlagReceived = true;
+            yield return new WaitForEndOfFrame();
         }
 
-        public string Post(string strKey, Dictionary<string, string> pJson)
+        public string Post(string strKey, Dictionary<string, string> pJson, int nTimeout = 10000)
         {
             _bFlagReceived = false;
             strKey = $"{Address}/{strKey.TrimStart('/')}";
@@ -74,7 +84,16 @@ namespace Common
             foreach (KeyValuePair<string, string> pItem in pJson)
                 pForm.AddField(pItem.Key, pItem.Value);
             StartCoroutine(PostRequest(strKey, pForm));
-            while (!_bFlagReceived) Thread.Sleep(10);
+            DateTime pStartTime = DateTime.Now;
+            while (true)
+            {
+                TimeSpan pSpan = DateTime.Now - pStartTime;
+                if (pSpan.TotalMilliseconds > nTimeout)
+                    break;
+                if (!_bFlagReceived) continue;
+                Debug.Log($"POST {strKey} - time: ${pSpan.TotalMilliseconds}ms");
+                break;
+            }
             return _pHandler?.text;
         }
 
@@ -82,7 +101,7 @@ namespace Common
         {
             if (_bFlagReceived) _bFlagReceived = false;
             using UnityWebRequest pRequest = UnityWebRequest.Post(strUri, pForm);
-            yield return pRequest.SendWebRequest();
+            pRequest.SendWebRequest();
             if (pRequest.responseCode >= 200 & pRequest.responseCode < 300)
                 _pHandler = pRequest.downloadHandler;
             else
@@ -91,6 +110,7 @@ namespace Common
                 _pHandler = null;
             }
             _bFlagReceived = true;
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -141,12 +161,33 @@ namespace Common
             }
         }
 
+        public virtual void UpdatePrefabs([NotNull] IEnumerable<string> pEncodes)
+        {
+            if (pEncodes == null)
+                throw new ArgumentNullException(nameof(pEncodes));
+            foreach (string strImageEncoded in pEncodes)
+            {
+                if (_iPrefab >= count) break;
+                SpawnPrefab(strImageEncoded, _iPrefab);
+                _iPrefab++;
+            }
+        }
+
         public virtual void SpawnPrefab(FileInfo pFile, int nIndex)
         {
             GameObject pClone = CreatePrefab(nIndex);
             T pPrefab = pClone.GetComponent<T>();
             pPrefab.OnTextureDeliverEvent += OnDeliverTexture;
             pPrefab.UpdateArt(pFile);
+            _pListPrefabs.Add(pPrefab);
+        }
+
+        public virtual void SpawnPrefab(string strImage, int nIndex)
+        {
+            GameObject pClone = CreatePrefab(nIndex);
+            T pPrefab = pClone.GetComponent<T>();
+            pPrefab.OnTextureDeliverEvent += OnDeliverTexture;
+            pPrefab.UpdateArt(strImage);
             _pListPrefabs.Add(pPrefab);
         }
 
