@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 namespace Common
 {
@@ -165,8 +166,16 @@ namespace Common
         public static int Sign(float fX) => fX == 0 ? 0 : (fX < 0) ? -1 : 1;
     }
 
-    public static class FileFunctions
+    public static class CurateFunctions
     {
-        
+        public static T[] RandomCurate<T>(T[] pSources, int nArtNum)
+        {
+            if (pSources.Length < nArtNum)
+                throw new Exception($"Not enough arts compared to the exhibition ({pSources.Length} < {nArtNum})");
+            Random pRandom = new Random();
+            IOrderedEnumerable<T> pRandomizedSource = pSources.OrderBy(item => pRandom.Next());
+            T[] pResult = pRandomizedSource.ToArray();
+            return pResult.Take(nArtNum).ToArray();
+        }
     }
 }
