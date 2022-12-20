@@ -26,7 +26,7 @@ namespace Gallery3D
             }
 
             // Bring paints as number of total count
-            DirectoryInfo pDirectory = new DirectoryInfo(GlobalParameter.ResourcePath);
+            DirectoryInfo pDirectory = new DirectoryInfo(Path.Combine(GlobalParameter.ResourcePath, "Images"));
             FileInfo[] pFiles = CurateFunctions.RandomCurate(pDirectory.GetImagesAll(), nTotalCount);
             // Initialize the spawner
             int nStartPos = 0;
