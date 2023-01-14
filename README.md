@@ -51,6 +51,12 @@ Gallery 실행시 Back-end 서버에서 관심사, 주제에 맞게 작품들을
 
 ---
 
+## 사용 방법
+
+[사용 방법](Usage.md)은 별도 페이지 참고.
+
+---
+
 ## Demo 영상
 
 ![demo](./figures/unity_local_demo1.gif)
